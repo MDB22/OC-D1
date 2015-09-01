@@ -1,19 +1,15 @@
-UAV: How it will complete the mision...
-How do systems work together?
+Execution of the mission will begin once the arming switch is pressed, and the aircraft becomes armed, at which point the aircraft will immediately begin autonomous operations; there will be no commands given by the UAV controller to initiate the mission.\\
 
-``Arming switch''
-``Retrieval aircraft''
-No more than 1500ft AGL
-Section 1.2.1. +-100m position of Joe
-Transit corridor
-Section 1.3.1. Landing site assessment
-30m-80m from Joe.
+Upon arming, the aircraft will perform vertical takeoff from the Base using its VTOL mode, and will ensure it remains within the base Geofence. Once it has reached an appropriate altitude (yet to be tested, no more than 1500ft AGL), the aircraft will transition to its fixed-wing flight mode by rotating its front motors 90$^\circ$ and disengaging the back motor.\\
 
-Mission completion
-\begin{itemize}
-	\item Does not cross Geofence boundary
-	\item Autonomous landing between 30m-80m from Joe
-	\item Autonomous take off from landing zone
-	\item Lands at base with sample
-	\item Lands within mission time
-\end{itemize}
+Once fixed-wing mode is engaged, the aircraft will begin its transit to the remote landing site, through the provided waypoints, whilst continuing to monitor its position relative to the Geofence boundaries.\\
+
+Upon reaching the remote landing site, the aircraft will begin performing sweeps within the landing site Geofence, attempting to get an approximate position for Joe's location using the webcam, while remaining in the air.\\
+
+Once Joe has been located, the aircraft will transition back to VTOL mode. It will then use the webcam and LiDAR to maintain vision of Joe, while avoiding obstacles in the environment, in order to land in the safe zone (30m-80m) around Joe.\\
+
+After landing, the Raspberry Pi will disengage all power to the motors, and will display the ``disarmed'' signal to Joe. He may then approach the aircraft to place the Sample in the Storage Compartment, and engage the arming switch.\\
+
+Having been rearmed, the aircraft will wait one minute before initiating vertical takeoff, and reversing the manoeuvres to return to base; transitioning to fixed-wing flight, traveling through the transit corridor, and returning to VTOL mode to land at the Base. The aircraft will then disarm itself once more, and the mission will be completed.\\
+
+This behaviour is consistent with the rules outlined in section 3. If at any time during the mission the Raspberry Pi determines a Geofence was breached, the flight termination system will be immediately activated, per sections 3.1.4-3.1.6.\\
