@@ -1,5 +1,5 @@
-geofence.log
+*.out
 *.aux
-geofence.synctex.gz
 *.gz
-D1.log
+*.gz
+*.log
