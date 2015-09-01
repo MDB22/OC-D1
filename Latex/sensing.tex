@@ -1,4 +1,4 @@
-Figure \ref{fig:sensing} outlines the on-board sensing capabilities that will be available to the aircraft. Each sensor is detailed below.
+Figure \ref{fig:sensing} outlines the on-board sensing capabilities that will be available to the aircraft. Each sensor is detailed below, as well as the control devices that will facilitate the autonomous behaviour of the aircraft.
 
 \begin{figure}[!h]
 	\centering
@@ -7,17 +7,20 @@ Figure \ref{fig:sensing} outlines the on-board sensing capabilities that will be
 	\label{fig:sensing}
 \end{figure}
 
+\subsubsection*{Raspberry Pi}
+The Raspberry Pi will act as the aircraft's on-board computing platform, providing autonomy by giving flight commands to the flight controller, as well as the processing and intelligence for path planning, and object detection. It will also pull flight data from the PixHawk and other sensors, and generate detailed flight logs for later review.
+
 \subsubsection*{PixHawk Flight Controller}
-The PixHawk has several in-built or plug-and-play sensors, including a 3-axis accelerometer, altimeter, compass, and GPS. The PixHawk will provide the aircraft's telemetry to the main processor, which will be augmented by the additional sensors below.
+The PixHawk will control the aircraft's flight functionality, such as controlling motors and ailerons, and executing flight paths and commands from the Raspberry Pi. It also has several in-built or plug-and-play sensors, including a 3-axis accelerometer, altimeter, compass, and GPS. The PixHawk will provide the aircraft's telemetry to the Raspberry Pi and the base station, which will be augmented by the additional sensors below.
 
 \subsubsection*{Ultrasonic Module}
-The ultrasonic module will be mounted underneath the aircraft. The GPS and altimeter will provided altitude measurements in flight; the ultrasonic will provide a more reliable and controllable height measurement to augment these measurement to assist in the aircraft's autonomous landing.
+The ultrasonic module will be mounted underneath the aircraft. The GPS and altimeter will provide altitude measurements during fixed-wing flight; the ultrasonic will augment these by providing a more reliable and controllable height measurement during rotor-based flight, assisting with search and landing.
 
 \subsubsection*{Webcam}
-The webcam will mounted beneath the nose of the aircraft. It will provide vision for the aircraft's obstacle avoidance maneuvers, and will form the basis for identifying Joe's blue jeans.
+The webcam will be mounted beneath the nose of the aircraft. It will provide vision for the aircraft's obstacle avoidance manoeuvers, and will form the basis for identifying Joe using his hat and blue jeans.
 
 \subsubsection*{LiDAR}
-The LiDAR will be mounted in the nose of the aircraft. The LiDAR can only measure the range of objects directly in front of it, so it will be mounted on a dual servo system that allows it to sweep a hemisphere in front of the aircraft (see Figure ). It will provide a 3D map of the environment in front of the aircraft, and will assist in path planning and obstacle avoidance.
+The LiDAR will be mounted in the nose of the aircraft. The LiDAR can only measure the range of objects directly in front of it, so it will be mounted on a dual servo system that allows it to sweep a hemisphere in front of the aircraft (see Figure \ref*{fig:lidar}). It will provide a 3D map of the environment in front of the aircraft, and will assist in path planning and obstacle avoidance.
 
 \begin{figure}[!h]
 	\centering
